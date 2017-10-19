@@ -9,23 +9,31 @@ $(document).ready(function() {
       doThings = "";
       $('#screen').text(result);
       console.log('is C');
-    }
-    else if(digit === '='){
+    } else if (digit === '=') {
       result = eval(doThings);
-      $('#screen').text(result)
+      if (result === Infinity) {
+        $('#screen').text('Error')
+      } else if (result === NaN) {
+        $('#screen').text('Error')
+      } else {
+        $('#screen').text(result)
+      }
       console.log('= was hit')
       console.log(result);
+    } else {
+      if (digit === 'x') {
+        doThings += ' * '
+        $('#screen').text(doThings)
+      } else if (digit === "÷") {
+        doThings += ' / '
+        $('#screen').text(doThings)
+      } else {
+        doThings += digit
+        $('#screen').text(doThings)
+      }
+
     }
-    else if(digit === 'x'){
-      doThings += '*'
-    }
-    else if(digit === "÷"){
-      doThings += '/'
-    }
-    else {
-      doThings += digit
-      $('#screen').text(doThings)
-    }
+
     console.log(doThings);
   })
 })
