@@ -2,7 +2,7 @@ $(document).ready(function() {
   var result = 0;
   var doThings = "";
 
-  $('span').click(function(event) {
+  $('span').on('click', (event) => {
     var digit = $(event.target).text();
     if (digit === 'C') {
       result = 0;
